@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Toggle</title>
+    <style>
+        #gnb_all {width: 100px;height: 100px;background: red;display: none;}
+        .gnb_menu_btn {cursor: pointer;}
+    </style>
+</head>
+<body>
+    <div class="gnb_menu_btn">버튼</div>
+    <div id="gnb_all">something I want to show</div>
+    <script>
+        $(document).ready(function() {
+            $('.gnb_menu_btn').click(function(event) {
+                event.stopPropagation();
+                $("#gnb_all").slideToggle("fast");
+            });
+            $("#gnb_all").on("click", function(event) {
+                event.stopPropagation();
+            });
+        });
+        $(document).on("click", function() {
+            $("#gnb_all").hide();
+        });
+    </script>
+</body>
+</html>
